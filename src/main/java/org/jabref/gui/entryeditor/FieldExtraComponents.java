@@ -51,15 +51,15 @@ import org.apache.commons.logging.LogFactory;
 
 public class FieldExtraComponents {
 
-    private static final Log LOGGER = LogFactory.getLog(FieldExtraComponents.class);
-
-    private FieldExtraComponents() {
-    }
-
     private static final String ABBREVIATION_TOOLTIP_TEXT = "<HTML>"
             + Localization.lang("Switches between full and abbreviated journal name if the journal name is known.")
             + "<BR>" + Localization.lang("To set up, go to") + " <B>" + Localization.lang("Options") + " -> "
             + Localization.lang("Manage journal abbreviations") + "</B></HTML>";
+
+    private static final Log LOGGER = LogFactory.getLog(FieldExtraComponents.class);
+
+    private FieldExtraComponents() {
+    }
 
 
     /**
@@ -82,7 +82,6 @@ public class FieldExtraComponents {
             contentSelectors.add(ws);
             controls.add(ws, BorderLayout.NORTH);
         }
-
 
         // Button to toggle abbreviated/full journal names
         JButton button = new JButton(Localization.lang("Toggle abbreviation"));
@@ -227,7 +226,7 @@ public class FieldExtraComponents {
 
             private void checkDoi() {
                 Optional<DOI> doiUrl = DOI.build(doi.getText());
-                if(doiUrl.isPresent()) {
+                if (doiUrl.isPresent()) {
                     button.setEnabled(true);
                     fetchButton.setEnabled(true);
                 } else {
@@ -443,9 +442,9 @@ public class FieldExtraComponents {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 2) {// double click
+                if (e.getClickCount() == 2) { // double click
                     String date = "";
-                    if(useIsoFormat) {
+                    if (useIsoFormat) {
                         date = DateTimeFormatter.ISO_DATE.format(LocalDate.now());
                     } else {
                         date = DateTimeFormatter.ofPattern(Globals.prefs.get(JabRefPreferences.TIME_STAMP_FORMAT)).format(

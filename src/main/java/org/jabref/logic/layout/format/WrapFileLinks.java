@@ -82,11 +82,6 @@ public class WrapFileLinks extends AbstractParamLayoutFormatter {
 
     private static final Log LOGGER = LogFactory.getLog(WrapFileLinks.class);
 
-    private String fileType;
-    private List<FormatEntry> format;
-    private final Map<String, String> replacements = new HashMap<>();
-
-
     // Define codes for the various escape sequences that can be inserted:
     private static final int STRING = 0;
     private static final int ITERATION_COUNT = 1;
@@ -98,6 +93,11 @@ public class WrapFileLinks extends AbstractParamLayoutFormatter {
 
     // Define which escape sequences give what results:
     private static final Map<Character, Integer> ESCAPE_SEQ = new HashMap<>();
+    private String fileType;
+    private List<FormatEntry> format;
+
+
+    private final Map<String, String> replacements = new HashMap<>();
 
     private final FileLinkPreferences prefs;
 

@@ -23,9 +23,9 @@ import org.apache.commons.logging.LogFactory;
  */
 public class TransferableFileLinkSelection implements Transferable {
 
-    private final List<File> fileList = new ArrayList<>();
-
     private static final Log LOGGER = LogFactory.getLog(TransferableFileLinkSelection.class);
+
+    private final List<File> fileList = new ArrayList<>();
 
 
     public TransferableFileLinkSelection(BasePanel panel, List<BibEntry> selection) {

@@ -281,7 +281,6 @@ public class SynchronizeFileField extends AbstractWorker {
         }
     }
 
-
     static class OptionsDialog extends JDialog {
 
 

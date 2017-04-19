@@ -26,7 +26,6 @@ public class MonthUtil {
             new Month("December", "dec", "12", "#dec#", 12, 11)
             );
 
-
     public static class Month {
 
         public final String fullName;

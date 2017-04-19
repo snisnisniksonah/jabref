@@ -116,7 +116,6 @@ class PreambleEditor extends JDialog {
         editor.setText(database.getPreamble().orElse(""));
     }
 
-
     private class FieldListener extends FocusAdapter {
 
         /*
@@ -131,8 +130,6 @@ class PreambleEditor extends JDialog {
         }
 
     }
-
-
 
     class StoreFieldAction extends AbstractAction {
 
@@ -166,8 +163,6 @@ class PreambleEditor extends JDialog {
         }
     }
 
-
-
     class UndoAction extends AbstractAction {
 
         public UndoAction() {
@@ -180,8 +175,6 @@ class PreambleEditor extends JDialog {
             panel.runCommand(Actions.UNDO);
         }
     }
-
-
 
     class RedoAction extends AbstractAction {
 
@@ -196,8 +189,6 @@ class PreambleEditor extends JDialog {
         }
     }
 
-
-
     class CloseAction extends AbstractAction {
 
         public CloseAction() {
@@ -211,7 +202,6 @@ class PreambleEditor extends JDialog {
             dispose();
         }
     }
-
 
     public FieldEditor getFieldEditor() {
         return editor;

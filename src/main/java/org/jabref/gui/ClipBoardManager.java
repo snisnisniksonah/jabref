@@ -49,7 +49,7 @@ public class ClipBoardManager implements ClipboardOwner {
     /**
      * Places the string into the clipboard using a {@link Transferable}.
      */
-    public void setTransferableClipboardContents(Transferable transferable){
+    public void setTransferableClipboardContents(Transferable transferable) {
         CLIPBOARD.setContents(transferable, this);
     }
 
@@ -74,12 +74,10 @@ public class ClipBoardManager implements ClipboardOwner {
         return result;
     }
 
-
     public List<BibEntry> extractBibEntriesFromClipboard() {
         // Get clipboard contents, and see if TransferableBibtexEntry is among the content flavors offered
         Transferable content = CLIPBOARD.getContents(null);
         List<BibEntry> result = new ArrayList<>();
-
 
         if (content.isDataFlavorSupported(TransferableBibtexEntry.entryFlavor)) {
             // We have determined that the clipboard data is a set of entries.

@@ -394,7 +394,6 @@ class StyleSelectDialog {
         }
     }
 
-
     public boolean isOkPressed() {
         return okPressed;
     }

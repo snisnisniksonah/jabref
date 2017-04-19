@@ -200,7 +200,6 @@ public class WriteXMPAction extends AbstractWorker {
                 String.valueOf(entriesChanged), String.valueOf(skipped), String.valueOf(errors)));
     }
 
-
     class OptionsDialog extends JDialog {
 
         private final JButton okButton = new JButton(Localization.lang("OK"));

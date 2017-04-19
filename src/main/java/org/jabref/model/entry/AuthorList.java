@@ -509,7 +509,6 @@ public class AuthorList {
             return authorLastFirstAnds[abbrInt];
         }
 
-
         authorLastFirstAnds[abbrInt] = getAuthors().stream().map(author -> author.getLastFirst(abbreviate))
                 .collect(Collectors.joining(" and "));
         return authorLastFirstAnds[abbrInt];

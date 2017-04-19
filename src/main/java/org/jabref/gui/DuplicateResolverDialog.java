@@ -37,9 +37,9 @@ public class DuplicateResolverDialog extends JDialog {
         BREAK
     }
 
+    JButton helpButton = new HelpAction(Localization.lang("Help"), HelpFile.FIND_DUPLICATES).getHelpButton();
     private final JButton cancel = new JButton(Localization.lang("Cancel"));
     private final JButton merge = new JButton(Localization.lang("Keep merged entry only"));
-    JButton helpButton = new HelpAction(Localization.lang("Help"), HelpFile.FIND_DUPLICATES).getHelpButton();
     private final JabRefFrame frame;
     private final JPanel options = new JPanel();
     private DuplicateResolverResult status = DuplicateResolverResult.NOT_CHOSEN;
@@ -131,7 +131,6 @@ public class DuplicateResolverDialog extends JDialog {
 
         both.requestFocus();
     }
-
 
     private void buttonPressed(DuplicateResolverResult result) {
         status = result;

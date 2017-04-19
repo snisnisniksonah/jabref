@@ -800,7 +800,6 @@ public class XMPUtil {
                 continue;
             }
 
-
             /**
              * All others (including the bibtex key) get packaged in the
              * relation attribute

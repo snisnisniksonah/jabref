@@ -73,7 +73,7 @@ public class DatabaseFileLookup {
             String link = field.getLink();
 
             // Do not query external file links (huge performance leak)
-            if(link.contains("//")) {
+            if (link.contains("//")) {
                 continue;
             }
 

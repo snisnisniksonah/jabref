@@ -122,7 +122,7 @@ public class FileListTableModel extends AbstractTableModel {
         List<ParsedFileField> fields = FileField.parse(value);
         List<FileListEntry> files = new ArrayList<>();
 
-        for(ParsedFileField entry : fields) {
+        for (ParsedFileField entry : fields) {
             if (entry.isEmpty()) {
                 continue;
             }

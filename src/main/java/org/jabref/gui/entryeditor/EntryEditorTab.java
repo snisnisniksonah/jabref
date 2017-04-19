@@ -49,6 +49,9 @@ import com.jgoodies.forms.layout.FormLayout;
  */
 class EntryEditorTab {
 
+    // UGLY HACK to have a pointer to the fileListEditor to call autoSetLinks()
+    public FileListEditor fileListEditor;
+
     private final JPanel panel = new JPanel();
 
     private final JScrollPane scrollPane = new JScrollPane(panel,
@@ -61,9 +64,6 @@ class EntryEditorTab {
     private final Map<String, FieldEditor> editors = new HashMap<>();
 
     private FieldEditor activeField;
-
-    // UGLY HACK to have a pointer to the fileListEditor to call autoSetLinks()
-    public FileListEditor fileListEditor;
 
     private BibEntry entry;
 
@@ -317,16 +317,16 @@ class EntryEditorTab {
         }
 
         FieldEditor fieldEditor = editors.get(field);
-        if (fieldEditor.getText().equals(content)){
+        if (fieldEditor.getText().equals(content)) {
             return true;
         }
 
         // trying to preserve current edit position (fixes SF bug #1285)
-        if(fieldEditor.getTextComponent() instanceof JTextComponent) {
+        if (fieldEditor.getTextComponent() instanceof JTextComponent) {
             int initialCaretPosition = ((JTextComponent) fieldEditor).getCaretPosition();
             fieldEditor.setText(content);
             int textLength = fieldEditor.getText().length();
-            if(initialCaretPosition<textLength) {
+            if (initialCaretPosition < textLength) {
                 ((JTextComponent) fieldEditor).setCaretPosition(initialCaretPosition);
             } else {
                 ((JTextComponent) fieldEditor).setCaretPosition(textLength);

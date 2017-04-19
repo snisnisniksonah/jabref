@@ -23,7 +23,6 @@ public class FileChecker implements ValueChecker {
         this.fileDirectoryPreferences = fileDirectoryPreferences;
     }
 
-
     @Override
     public Optional<String> checkValue(String value) {
         List<ParsedFileField> parsedFileFields = FileField.parse(value).stream()

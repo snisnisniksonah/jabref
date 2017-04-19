@@ -52,9 +52,11 @@ import com.jgoodies.forms.builder.ButtonBarBuilder;
 
 public class EntryCustomizationDialog extends JDialog implements ListSelectionListener {
 
-    private final JabRefFrame frame;
     protected GridBagLayout gbl = new GridBagLayout();
     protected GridBagConstraints con = new GridBagConstraints();
+    protected JButton helpButton;
+    protected JButton delete;
+    private final JabRefFrame frame;
     private FieldSetComponent reqComp;
     private FieldSetComponent optComp;
     private FieldSetComponent optComp2;
@@ -62,8 +64,6 @@ public class EntryCustomizationDialog extends JDialog implements ListSelectionLi
     private JButton ok;
     private JButton cancel;
     private JButton apply;
-    protected JButton helpButton;
-    protected JButton delete;
     private final List<String> preset = InternalBibtexFields.getAllPublicFieldNames();
     private String lastSelected;
     private final Map<String, List<String>> reqLists = new HashMap<>();
@@ -303,7 +303,7 @@ public class EntryCustomizationDialog extends JDialog implements ListSelectionLi
         }
 
         // update all affected entries if something has been changed
-        if(!actuallyChangedTypes.isEmpty()) {
+        if (!actuallyChangedTypes.isEmpty()) {
             updateEntriesForChangedTypes(actuallyChangedTypes);
         }
 

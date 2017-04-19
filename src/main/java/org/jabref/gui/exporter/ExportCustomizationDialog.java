@@ -160,7 +160,6 @@ public class ExportCustomizationDialog extends JDialog {
         table.requestFocus();
     }
 
-
     private static class ExportTableFormat implements TableFormat<List<String>> {
 
         @Override
