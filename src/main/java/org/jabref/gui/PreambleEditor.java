@@ -210,16 +210,4 @@ class PreambleEditor extends JabRefDialog {
             dispose();
         }
     }
-
-<<<<<<< HEAD
-=======
-    public FieldEditor getFieldEditor() {
-        return editor;
-    }
-
-    public void storeCurrentEdit() {
-        storeFieldAction.actionPerformed(null);
-    }
-
->>>>>>> Fix checkstyle warnings
 }

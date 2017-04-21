@@ -73,7 +73,7 @@ public class ClipBoardManager implements ClipboardOwner {
         StringSelection stringSelection = new StringSelection(aString);
         CLIPBOARD.setContents(stringSelection, this);
     }
-	
+
     public List<BibEntry> extractBibEntriesFromClipboard() {
         // Get clipboard contents, and see if TransferableBibtexEntry is among the content flavors offered
         Transferable content = CLIPBOARD.getContents(null);

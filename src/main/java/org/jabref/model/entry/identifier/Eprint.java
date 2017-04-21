@@ -18,7 +18,6 @@ import org.apache.commons.logging.LogFactory;
  * @see https://arxiv.org/help/arxiv_identifier
  * @see https://arxiv.org/hypertex/bibstyles/
  */
-
 public class Eprint implements Identifier {
     public static final URI RESOLVER = URI.create("http://arxiv.org");
     private static final Log LOGGER = LogFactory.getLog(Eprint.class);
@@ -41,6 +40,9 @@ public class Eprint implements Identifier {
     private static final String HTTP_EXP = "https?://[^\\s]+?" + EPRINT_EXP;
     // Pattern
     private static final Pattern EXACT_EPRINT_PATT = Pattern.compile("^(?:https?://[^\\s]+?)?" + EPRINT_EXP + "$", Pattern.CASE_INSENSITIVE);
+    // DOI
+    private final String eprint;
+
     // DOI
     private final String eprint;
 

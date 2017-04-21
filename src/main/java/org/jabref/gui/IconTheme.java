@@ -163,7 +163,7 @@ public class IconTheme {
 
         return jabrefLogos;
     }
-
+	
     public enum JabRefIcon {
 
         ADD("\uf416") /*css: mdi-plus-box*/,

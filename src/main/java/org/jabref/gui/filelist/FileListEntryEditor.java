@@ -84,14 +84,9 @@ public class FileListEntryEditor {
     private boolean okPressed;
     private boolean okDisabledExternally;
     private boolean openBrowseWhenShown;
-
-<<<<<<< HEAD
-=======
     private boolean dontOpenBrowseUntilDisposed;
     //Do not make this variable final, as then the lambda action listener will fail on compile
     private JabRefFrame frame;
-
->>>>>>> Fix checkstyle warnings
     private boolean showSaveDialog;
 
     private final ActionListener browsePressed = e -> {
@@ -396,8 +391,7 @@ public class FileListEntryEditor {
     public boolean okPressed() {
         return okPressed;
     }
-<<<<<<< HEAD
-
+	
     private final ActionListener browsePressed = e -> {
         String fileText = link.getText().trim();
         Optional<Path> file = FileHelper.expandFilename(this.databaseContext, fileText,
@@ -432,6 +426,4 @@ public class FileListEntryEditor {
             link.requestFocus();
         });
     };
-=======
->>>>>>> Fix checkstyle warnings
 }

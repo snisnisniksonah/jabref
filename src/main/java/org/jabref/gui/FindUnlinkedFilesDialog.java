@@ -89,7 +89,6 @@ import org.apache.commons.logging.LogFactory;
  */
 public class FindUnlinkedFilesDialog extends JabRefDialog {
     private static final Log LOGGER = LogFactory.getLog(FindUnlinkedFilesDialog.class);
-
     /**
      * Keys to be used for referencing this Action.
      */
