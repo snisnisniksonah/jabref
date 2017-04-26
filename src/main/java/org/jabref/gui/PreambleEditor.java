@@ -210,4 +210,5 @@ class PreambleEditor extends JabRefDialog {
             dispose();
         }
     }
+
 }

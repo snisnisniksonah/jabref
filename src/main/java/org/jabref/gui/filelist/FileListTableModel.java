@@ -124,6 +124,7 @@ public class FileListTableModel extends AbstractTableModel {
         List<FileListEntry> files = new ArrayList<>();
 
         for(LinkedFile entry : fields) {
+
             if (entry.isEmpty()) {
                 continue;
             }

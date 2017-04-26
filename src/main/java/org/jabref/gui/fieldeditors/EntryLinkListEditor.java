@@ -402,11 +402,6 @@ public class EntryLinkListEditor extends JTable implements FieldEditor {
         // Do nothing
     }
 
-    @Override
-    public void updateFontColor() {
-        // Do nothing
-    }
-
     private class EntryLinkListTableModel extends DefaultTableModel {
 
         private final List<ParsedEntryLink> internalList = Collections.synchronizedList(new ArrayList<>());

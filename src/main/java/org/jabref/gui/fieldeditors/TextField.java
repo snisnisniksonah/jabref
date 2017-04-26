@@ -135,7 +135,6 @@ public class TextField extends JTextFieldWithPlaceholder implements FieldEditor 
 
     }
 
-
     private void updateFont() {
         setFont(GUIGlobals.currentFont);
     }
