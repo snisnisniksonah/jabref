@@ -44,9 +44,6 @@ public class Eprint implements Identifier {
     // DOI
     private final String eprint;
 
-    // DOI
-    private final String eprint;
-
     /**
      * Creates a Eprint from various schemes including URL.
      *
