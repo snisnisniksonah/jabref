@@ -7,14 +7,13 @@ import org.jabref.logic.importer.ParseException;
 import org.jabref.logic.importer.fileformat.BibtexParser;
 import org.jabref.model.database.BibDatabase;
 import org.jabref.model.entry.BibEntry;
+import org.jabref.preferences.JabRefPreferences;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Answers;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-import static org.mockito.Mockito.mock;
 
 public class BibtexKeyPatternUtilTest {
 
@@ -44,7 +43,7 @@ public class BibtexKeyPatternUtilTest {
 
     @Before
     public void setUp() {
-        importFormatPreferences = mock(ImportFormatPreferences.class, Answers.RETURNS_DEEP_STUBS);
+        importFormatPreferences = JabRefPreferences.getInstance().getImportFormatPreferences();
     }
 
     @Test
@@ -652,26 +651,26 @@ public class BibtexKeyPatternUtilTest {
     public void shortTitle() {
         // shortTitle is getTitleWords with "3" as count
         int count = 3;
-        assertEquals("applicationmigrationeffort",
+        assertEquals("application migration effort",
                 BibtexKeyPatternUtil.getTitleWords(count, TITLE_STRING_ALL_LOWER_FOUR_SMALL_WORDS_ONE_EN_DASH));
-        assertEquals("BPELconformancein", BibtexKeyPatternUtil.getTitleWords(count,
+        assertEquals("BPEL conformance in", BibtexKeyPatternUtil.getTitleWords(count,
                 TITLE_STRING_ALL_LOWER_FIRST_WORD_IN_BRACKETS_TWO_SMALL_WORDS_SMALL_WORD_AFTER_COLON));
-        assertEquals("ProcessViewingPatterns", BibtexKeyPatternUtil.getTitleWords(count, TITLE_STRING_CASED));
-        assertEquals("BPMNConformancein",
+        assertEquals("Process Viewing Patterns", BibtexKeyPatternUtil.getTitleWords(count, TITLE_STRING_CASED));
+        assertEquals("BPMN Conformance in",
                 BibtexKeyPatternUtil.getTitleWords(count, TITLE_STRING_CASED_ONE_UPPER_WORD_ONE_SMALL_WORD));
-        assertEquals("TheDifferenceBetween", BibtexKeyPatternUtil.getTitleWords(count,
+        assertEquals("The Difference Between", BibtexKeyPatternUtil.getTitleWords(count,
                 TITLE_STRING_CASED_TWO_SMALL_WORDS_SMALL_WORD_AT_THE_BEGINNING));
-        assertEquals("CloudComputingThe",
+        assertEquals("Cloud Computing: The",
                 BibtexKeyPatternUtil.getTitleWords(count, TITLE_STRING_CASED_TWO_SMALL_WORDS_SMALL_WORD_AFTER_COLON));
-        assertEquals("TowardsChoreographybased",
+        assertEquals("Towards Choreography based",
                 BibtexKeyPatternUtil.getTitleWords(count, TITLE_STRING_CASED_TWO_SMALL_WORDS_ONE_CONNECTED_WORD));
-        assertEquals("OntheMeasurement",
+        assertEquals("On the Measurement",
                 BibtexKeyPatternUtil.getTitleWords(count, TITLE_STRING_CASED_FOUR_SMALL_WORDS_TWO_CONNECTED_WORDS));
     }
 
     /**
-    * Tests [camel]
-    */
+     * Tests [camel]
+     */
     @Test
     public void camel() {
         // camel capitalises and concatenates all the words of the title
@@ -786,7 +785,7 @@ public class BibtexKeyPatternUtilTest {
         BibEntry entry = new BibEntry();
         entry.setField("title", "Green Scheduling of Whatever");
         assertEquals("GSo", BibtexKeyPatternUtil.makeLabel(entry, "shorttitleINI", ',', new BibDatabase()));
-        assertEquals("GreenSchedulingof", BibtexKeyPatternUtil.makeLabel(entry, "shorttitle",
+        assertEquals("Green Scheduling of", BibtexKeyPatternUtil.makeLabel(entry, "shorttitle",
                 ',', new BibDatabase()));
     }
 
