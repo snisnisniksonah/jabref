@@ -760,23 +760,20 @@ public class XMPUtil {
      * @param database maybenull An optional database which the given BibTeX entries belong to, which will be used to
      *                 resolve strings. If the database is null the strings will not be resolved.
      */
-    public static void writeDublinCore(PDDocument document, BibEntry entry,
-                                       BibDatabase database, XMPPreferences xmpPreferences) throws IOException, TransformerException {
-
-        List<BibEntry> entries = new ArrayList<>();
-        entries.add(entry);
-
-        XMPUtil.writeDublinCore(document, entries, database, xmpPreferences);
-    }
-
     public static void writeDublinCore(String fileName, BibEntry entry,
-                                BibDatabase database, XMPPreferences xmpPreferences) throws IOException, TransformerException {
-        XMPUtil.writeDublinCore(PDDocument.load(fileName), entry, database, xmpPreferences);
+                                BibDatabase database, XMPPreferences xmpPreferences) throws IOException, TransformerException, COSVisitorException {
+        File f = new File(fileName);
+        XMPUtil.writeDublinCore(f, entry, database, xmpPreferences);
     }
 
     public static void writeDublinCore(File file, BibEntry entry,
-                                       BibDatabase database, XMPPreferences xmpPreferences) throws IOException, TransformerException {
-        XMPUtil.writeDublinCore(PDDocument.load(file), entry, database, xmpPreferences);
+                                       BibDatabase database, XMPPreferences xmpPreferences) throws IOException, TransformerException, COSVisitorException {
+        List<BibEntry> entries = new ArrayList<>();
+        entries.add(entry);
+
+        PDDocument document = PDDocument.load(file);
+        XMPUtil.writeDublinCore(document, entries, database, xmpPreferences);
+        document.save(file);
     }
 
     /**
@@ -808,6 +805,11 @@ public class XMPUtil {
             meta = new XMPMetadata();
         } else {
             meta = new XMPMetadata(XMLUtil.parse(metaRaw.createInputStream()));
+        }
+
+        // Check if file is encrypted
+        if (document.isEncrypted()) {
+            throw new EncryptedPdfsNotSupportedException();
         }
 
         // Remove all current Dublin-Core schemas

@@ -5,23 +5,83 @@
 /Type /Catalog
 /Version /1.4
 /Pages 2 0 R
+/Metadata 3 0 R
 >>
 endobj
 2 0 obj
 <<
 /Type /Pages
-/Kids [3 0 R]
+/Kids [4 0 R]
 /Count 1
 >>
 endobj
 3 0 obj
+<<
+/Type /Metadata
+/Subtype /XML
+/Length 5 0 R
+>>
+stream
+<?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+
+<x:xmpmeta xmlns:x="adobe:ns:meta/">
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+
+
+<rdf:Description xmlns:dc="http://purl.org/dc/elements/1.1/">
+<dc:relation>
+<rdf:Bag>
+<rdf:li>bibtex/owner/oezbek</rdf:li>
+<rdf:li>bibtex/bibtexkey/canh05</rdf:li>
+<rdf:li>bibtex/booktitle/Hawaii International Conference On System Sciences (HICSS)</rdf:li>
+<rdf:li>bibtex/url/http://james.howison.name/publications.html</rdf:li>
+<rdf:li>bibtex/timestamp/2006.05.29</rdf:li>
+</rdf:Bag>
+</dc:relation>
+<dc:date>
+<rdf:Seq>
+<rdf:li>2005</rdf:li>
+</rdf:Seq>
+</dc:date>
+<dc:creator>
+<rdf:Seq>
+<rdf:li>K. Crowston</rdf:li>
+<rdf:li>H. Annabi</rdf:li>
+<rdf:li>J. Howison</rdf:li>
+<rdf:li>C. Masango</rdf:li>
+</rdf:Seq>
+</dc:creator>
+<dc:title>
+<rdf:Alt>
+<rdf:li xml:lang="x-default">Effective work practices for floss development: A model and propositions</rdf:li>
+</rdf:Alt>
+</dc:title>
+<dc:format>application/pdf</dc:format>
+<dc:type>
+<rdf:Bag>
+<rdf:li>Article</rdf:li>
+</rdf:Bag>
+</dc:type>
+</rdf:Description>
+</rdf:RDF>
+</x:xmpmeta>
+<?xpacket end="w"?>
+
+
+endstream
+endobj
+4 0 obj
 <<
 /Type /Page
 /MediaBox [0 0 612 792]
 /Parent 2 0 R
 >>
 endobj
-4 0 obj
+5 0 obj
+1156
+endobj
+6 0 obj
 <<
 /Filter /Standard
 /V 1
@@ -33,19 +93,21 @@ endobj
 >>
 endobj
 xref
-0 5
+0 7
 0000000000 65535 f
-0000000017 00000 n
-0000000087 00000 n
+0000000015 00000 n
+0000000094 00000 n
 0000000151 00000 n
-0000000229 00000 n
+0000001392 00000 n
+0000001463 00000 n
+0000001483 00000 n
 trailer
 <<
 /Root 1 0 R
 /ID [<5A3B45F717FB6A727A135C85396AE04E> <5A3B45F717FB6A727A135C85396AE04E>]
-/Encrypt 4 0 R
-/Size 5
+/Encrypt 6 0 R
+/Size 7
 >>
 startxref
-446
+1689
 %%EOF

@@ -25,6 +25,7 @@ import org.jabref.preferences.JabRefPreferences;
 
 import org.apache.jempbox.impl.XMLUtil;
 import org.apache.jempbox.xmp.XMPMetadata;
+import org.apache.pdfbox.exceptions.COSVisitorException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 
 public class XMPUtilMain {
@@ -56,7 +57,7 @@ public class XMPUtilMain {
      * @throws TransformerException
      *             If the given BibEntry is malformed.
      */
-    public static void main(String[] args) throws IOException, TransformerException {
+    public static void main(String[] args) throws IOException, TransformerException, COSVisitorException {
 
         // Don't forget to initialize the preferences
         if (Globals.prefs == null) {
@@ -141,7 +142,7 @@ public class XMPUtilMain {
             Optional<BibEntry> bibEntry = result.getDatabase().getEntryByKey(args[0]);
 
             if (bibEntry.isPresent()) {
-                XMPUtil.writeDublinCore(PDDocument.load(args[2]), bibEntry.get(), result.getDatabase(), xmpPreferences);
+                XMPUtil.writeDublinCore(args[2], bibEntry.get(), result.getDatabase(), xmpPreferences);
 
                 System.out.println("DublinCore written.");
             } else {

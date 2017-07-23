@@ -21,6 +21,8 @@ import org.jabref.logic.l10n.Localization;
 import org.jabref.logic.xmp.XMPUtil;
 import org.jabref.model.entry.BibEntry;
 
+import org.apache.pdfbox.exceptions.COSVisitorException;
+
 /**
  * Write XMP action for EntryEditor toolbar.
  */
@@ -102,7 +104,7 @@ public class WriteXMPEntryEditorAction extends AbstractAction {
                                 message = Localization.lang("Wrote XMP-metadata");
                             }
                             written++;
-                        } catch (IOException | TransformerException e) {
+                        } catch (IOException | TransformerException | COSVisitorException e) {
                             if (files.size() == 1) {
                                 message = Localization.lang("Error while writing") + " '" + file.toString() + "'";
                             }
