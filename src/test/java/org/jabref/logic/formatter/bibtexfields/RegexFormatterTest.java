@@ -22,7 +22,7 @@ public class RegexFormatterTest {
         formatter.setRegex(regexInput);
         Assert.assertEquals("replace-all-spaces", formatter.format("replace all spaces"));
         Assert.assertEquals("replace-spaces-{not these ones}", formatter.format("replace spaces {not these ones}"));
-        Assert.assertEquals("replace-spaces-{not these ones}-{or these ones}-but-these-ones", formatter.format("replace spaces {not these ones} {or these ones} but these ones"));
+        Assert.assertEquals("replace-spaces-{not these ones}-and-these-ones-{or these ones}-but-these-ones", formatter.format("replace spaces {not these ones} and these ones {or these ones} but these ones"));
     }
 
     @Test

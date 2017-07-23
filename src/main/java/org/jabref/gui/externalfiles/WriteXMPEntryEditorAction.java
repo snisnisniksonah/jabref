@@ -97,7 +97,7 @@ public class WriteXMPEntryEditorAction extends AbstractAction {
 
                     } else {
                         try {
-                            XMPUtil.writeXMP(file.toFile(), entry, panel.getDatabase(), Globals.prefs.getXMPPreferences());
+                            XMPUtil.writeDublinCore(file.toFile(), entry, panel.getDatabase(), Globals.prefs.getXMPPreferences());
                             if (files.size() == 1) {
                                 message = Localization.lang("Wrote XMP-metadata");
                             }

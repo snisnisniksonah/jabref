@@ -25,6 +25,7 @@ import org.jabref.preferences.JabRefPreferences;
 
 import org.apache.jempbox.impl.XMLUtil;
 import org.apache.jempbox.xmp.XMPMetadata;
+import org.apache.pdfbox.pdmodel.PDDocument;
 
 public class XMPUtilMain {
 
@@ -140,9 +141,9 @@ public class XMPUtilMain {
             Optional<BibEntry> bibEntry = result.getDatabase().getEntryByKey(args[0]);
 
             if (bibEntry.isPresent()) {
-                XMPUtil.writeXMP(new File(args[2]), bibEntry.get(), result.getDatabase(), xmpPreferences);
+                XMPUtil.writeDublinCore(PDDocument.load(args[2]), bibEntry.get(), result.getDatabase(), xmpPreferences);
 
-                System.out.println("XMP written.");
+                System.out.println("DublinCore written.");
             } else {
                 System.err.println("Could not find BibEntry " + args[0] + " in " + args[0]);
             }

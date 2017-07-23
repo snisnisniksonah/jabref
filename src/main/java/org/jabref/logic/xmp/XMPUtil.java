@@ -76,30 +76,6 @@ public class XMPUtil {
     }
 
     /**
-     * Try to write the given BibTexEntry in the XMP-stream of the given
-     * PDF-file.
-     *
-     * Throws an IOException if the file cannot be read or written, so the user
-     * can remove a lock or cancel the operation.
-     *
-     * The method will overwrite existing BibTeX-XMP-data, but keep other
-     * existing metadata.
-     *
-     * This is a convenience method for writeXMP(File, BibEntry).
-     *
-     * @param filename The filename from which to open the file.
-     * @param entry    The entry to write.
-     * @param database maybenull An optional database which the given bibtex entries belong to, which will be used to
-     *                 resolve strings. If the database is null the strings will not be resolved.
-     * @throws TransformerException If the entry was malformed or unsupported.
-     * @throws IOException          If the file could not be written to or could not be found.
-     */
-    public static void writeXMP(String fileName, BibEntry entry,
-                                BibDatabase database, XMPPreferences xmpPreferences) throws IOException, TransformerException {
-        XMPUtil.writeXMP(new File(fileName), entry, database, xmpPreferences);
-    }
-
-    /**
      * Try to read the BibTexEntries from the XMP-stream of the given PDF-file.
      *
      * @param file The file to read from.
@@ -399,31 +375,6 @@ public class XMPUtil {
         return entry.getFieldNames().isEmpty() ? Optional.empty() : Optional.of(entry);
     }
 
-    /**
-     * Try to write the given BibTexEntry in the XMP-stream of the given
-     * PDF-file.
-     *
-     * Throws an IOException if the file cannot be read or written, so the user
-     * can remove a lock or cancel the operation.
-     *
-     * The method will overwrite existing BibTeX-XMP-data, but keep other
-     * existing metadata.
-     *
-     * This is a convenience method for writeXMP(File, Collection).
-     *
-     * @param file     The file to write to.
-     * @param entry    The entry to write.
-     * @param database maybenull An optional database which the given bibtex entries belong to, which will be used to
-     *                 resolve strings. If the database is null the strings will not be resolved.
-     * @throws TransformerException If the entry was malformed or unsupported.
-     * @throws IOException          If the file could not be written to or could not be found.
-     */
-    public static void writeXMP(File file, BibEntry entry,
-                                BibDatabase database, XMPPreferences xmpPreferences) throws IOException, TransformerException {
-        List<BibEntry> l = new LinkedList<>();
-        l.add(entry);
-        XMPUtil.writeXMP(file, l, database, true, xmpPreferences);
-    }
 
     /**
      * Write the given BibtexEntries as XMP-metadata text to the given stream.
@@ -435,7 +386,7 @@ public class XMPUtil {
      *                      to resolve strings. If the database is null the strings will not be resolved.
      * @throws TransformerException Thrown if the bibtexEntries could not transformed to XMP.
      * @throws IOException          Thrown if an IOException occured while writing to the stream.
-     * @see #toXMP(java.util.Collection, BibDatabase) if you don't need strings to be resolved.
+     * @see {#toXMP}(java.util.Collection, BibDatabase) if you don't need strings to be resolved.
      */
     private static void toXMP(Collection<BibEntry> bibtexEntries,
                               BibDatabase database, OutputStream outputStream, XMPPreferences xmpPreferences)
@@ -816,6 +767,16 @@ public class XMPUtil {
         entries.add(entry);
 
         XMPUtil.writeDublinCore(document, entries, database, xmpPreferences);
+    }
+
+    public static void writeDublinCore(String fileName, BibEntry entry,
+                                BibDatabase database, XMPPreferences xmpPreferences) throws IOException, TransformerException {
+        XMPUtil.writeDublinCore(PDDocument.load(fileName), entry, database, xmpPreferences);
+    }
+
+    public static void writeDublinCore(File file, BibEntry entry,
+                                       BibDatabase database, XMPPreferences xmpPreferences) throws IOException, TransformerException {
+        XMPUtil.writeDublinCore(PDDocument.load(file), entry, database, xmpPreferences);
     }
 
     /**
